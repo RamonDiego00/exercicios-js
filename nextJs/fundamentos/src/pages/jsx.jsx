@@ -7,7 +7,7 @@ function substitulo() {
     return(
         <div>
             {titulo}
-            {substitulo}
+            {substitulo()}
             <p>
                 {JSON.stringify({nome: 'João', idade: 30})}
             </p>
