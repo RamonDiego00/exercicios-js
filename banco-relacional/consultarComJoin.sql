@@ -11,4 +11,4 @@ select
 from estados e
 inner join cidades c on e.id = c.estado_id
 -- O where esta fazendo o relacionamento
--- O inner join esta fazendo o relacionamento tbm
+-- O inner join esta fazendo o relacionamento tbm 
