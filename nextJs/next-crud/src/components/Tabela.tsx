@@ -23,7 +23,7 @@ export default function Tabela(props: TabelaProps) {
     }
 
     function renderizarDados() {
-        // Se cliente stiver preeenchido ele chama o map
+        // Se cliente estiver preeenchido ele chama o map
         return props.clientes?.map((cliente, i) => {
             return(
                 <tr key={cliente.id}
