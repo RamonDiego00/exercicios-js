@@ -19,6 +19,7 @@ body {
 input {
     font-size: 2em;
     margin-bottom: 30px;
+    border-radius: 20px;
 }
 
 .output {
