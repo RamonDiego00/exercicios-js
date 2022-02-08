@@ -1,10 +1,49 @@
- const exprees = require('express')
- const app = exprees()
+const exprees = require('express')
+const app = exprees()
+const bodyParser = require('body-parser')
+
+
+const saudacao = require('./saudacaoMid')
+
+const usuarioApi = require('./api/usuario')
+
+const produtoApi = require('./api/produto')
+produtoApi(app, 'com param!')
+
+app.post('/usuario', usuarioApi.salvar)
+app.get('/usuario', usuarioApi.obter)
+
+
+app.use(bodyParser.text())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+
+app.use(saudacao('Ramon'))
 
  app.use('/opa',(req, res, next)=> {
     console.log('Antes...')
     next()
 })
+
+app.get('/clientes/relatorio', (req, res, next) => {
+    res.send(`Cliente relatório: completo = ${req.query.completo} ano = ${req.query.ano}`)
+})
+
+app.post('/corpo', (req, res) => {
+    // let corpo = ''
+    // req.on('data', function(parte) {
+    //     corpo += parte
+    // })
+    // req.on('end', function() {
+    //     res.send(corpo)
+    // })
+    res.send(req.body)
+})
+
+app.get('/clientes/:id', (req, res) => {
+    res.send(`Cliente ${req.params.id} selecionado!`)
+})
+
 
  app.get('/opa',(req, res, next) => {
      console.log('Durante...')
